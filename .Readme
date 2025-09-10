@@ -1,0 +1,7 @@
+## Finance
+
+# Requirements- packages
+npm i mongoose - using mongoose for dataBase,connecting is easy 
+npm i express - for easy routing and with extra benefits
+npm i cookie-parser - for storing cookie in the browser
+npm i express.json() - for getting and sending response and request
