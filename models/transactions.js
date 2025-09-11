@@ -24,4 +24,5 @@ const transactionSchema=new mongoose.Schema({
         enum:["shopping","rent","food","others","gas"]
     }
 })
-module.exports=mongoose.model("Transaction",transactionSchema)
+const Transactions=mongoose.model("Transaction",transactionSchema)
+module.exports=Transactions
