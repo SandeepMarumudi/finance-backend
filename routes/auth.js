@@ -26,4 +26,35 @@ authRouter.post("/signup", async (req, res) => {
   }
 });
 
+authRouter.post("/login",async(req,res)=>{
+    try{
+     const {email,password}=req.body
+     const user=await User.findOne({email:email})
+     if(!user){
+        throw new Error("Email not found please login")
+     }
+     const checkPassword=await user.validatePassword(password)
+     if(checkPassword){
+        const token=await user.getJWT()
+        res.cookie("token",token)
+         res.json({message:"loggedin successfully",loggedInUser:user})
+     }else{
+        throw new Error("Please wrong please try again")
+     }
+    }catch(err){
+        res.json({message:err.message})
+    }
+
+})
+
+authRouter.post("/signout",async(req,res)=>{
+    try{
+
+        res.cookie("token",null,{expires:new Date(Date.now())})
+        res.send("loggedout successfully")
+    }catch(err){
+        res.json({message:err.message})
+    }
+})
+
 module.exports=authRouter
