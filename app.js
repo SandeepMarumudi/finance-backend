@@ -24,17 +24,17 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: (origin, callback) => {
-      // ✅ Allowed origins for dev & production
+      /
       const allowedOrigins = [
-        "http://localhost:5173", // local dev
-        "https://finance-frontend-pied.vercel.app", // production frontend
+        "http://localhost:5173", 
+        "https://finance-frontend-pied.vercel.app", 
       ];
 
-      // ✅ Regex for all Vercel preview deployments
+      
       const vercelPreviewRegex = /^https:\/\/finance-frontend-git-main-sandeeps-projects-[a-z0-9]+\.vercel\.app$/;
 
       if (
-        !origin || // allow tools like Postman or curl
+        !origin || 
         allowedOrigins.includes(origin) ||
         vercelPreviewRegex.test(origin)
       ) {
@@ -44,7 +44,7 @@ app.use(
       }
     },
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    credentials: true, // 👈 needed for cookies
+    credentials: true,
   })
 );
 
