@@ -11,6 +11,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: "https://finance-frontend-pied.vercel.app",
+     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
