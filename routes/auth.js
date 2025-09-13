@@ -54,10 +54,10 @@ authRouter.post("/login",async(req,res)=>{
      if(checkPassword){
         const token=await user.getJWT()
         res.cookie("token",token,{
-          httpOnly: true, // can’t be accessed with JS → safer
-          secure: true, // required on HTTPS (Render uses HTTPS)
-          sameSite: "None", // required when frontend & backend are on different domains
-          path: "/", // make cookie available everywhere
+          httpOnly: true, 
+          secure: true, 
+          sameSite: "None", 
+          path: "/", 
         })
          res.json({message:"loggedin successfully",loggedInUser:user})
      }else{
