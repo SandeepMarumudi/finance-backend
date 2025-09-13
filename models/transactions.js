@@ -21,7 +21,7 @@ const transactionSchema=new mongoose.Schema({
     category:{
         type:String,
         required:true,
-        enum:["shopping","rent","food","others","gas"]
+        enum:["Shopping","Rent","Food","Travel","others","Petrol"]
     }
 })
 const Transactions=mongoose.model("Transaction",transactionSchema)

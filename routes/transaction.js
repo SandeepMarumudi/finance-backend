@@ -15,7 +15,7 @@ transRouter.get("/transactions", userAuth, async (req, res) => {
   }
 });
 
-transRouter.post("/add", userAuth, async (req, res) => {
+transRouter.post("/addTransaction", userAuth, async (req, res) => {
   try {
     const { amount, category, date, title } = req.body;
     const { _id } = req.user;
@@ -33,7 +33,7 @@ transRouter.post("/add", userAuth, async (req, res) => {
       transactionData: savedTrans,
     });
   } catch (err) {
-    res.json({ message: err.message });
+    res.status(400).json({ message: err.message });
   }
 });
 
