@@ -74,6 +74,7 @@ authRouter.post("/signout", (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: "None",
+    path: "/",
   });
   res.send("Logged out successfully");
 });
