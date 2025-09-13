@@ -37,6 +37,16 @@ transRouter.post("/addTransaction", userAuth, async (req, res) => {
   }
 });
 
+transRouter.get("/transaction/view/:id",userAuth,async(req,res)=>{
+    const {id}=req.params
+    try{
+     const transaction=await Transactions.findById({_id:id})
+     res.json({data:transaction})
+    }catch(err){
+        res.status(400).json({message:err.message})
+    }
+})
+
 transRouter.patch("/:id/edit", userAuth, async (req, res) => {
   try {
     const { id } = req.params;
