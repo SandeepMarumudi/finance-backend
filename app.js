@@ -24,7 +24,7 @@ app.use(cookieParser());
 app.use(
   cors({
     origin: (origin, callback) => {
-      /
+      
       const allowedOrigins = [
         "http://localhost:5173", 
         "https://finance-frontend-pied.vercel.app", 
