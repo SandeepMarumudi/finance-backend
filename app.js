@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({ 
-    origin: "https://finance-frontend-pied.vercel.app/",
+    origin: "https://finance-frontend-pied.vercel.app/", 
     credentials: true,
   })
 );
